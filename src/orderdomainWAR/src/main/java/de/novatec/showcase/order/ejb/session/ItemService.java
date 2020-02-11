@@ -5,21 +5,21 @@ import java.util.List;
 import de.novatec.showcase.order.ejb.entity.Item;
 
 public interface ItemService {
-	public void setBatchSize(int Size);
+	void setBatchSize(int Size);
 
-	public int getBatchSize();
+	int getBatchSize();
 
-	public List<Item> getItems(String itemIds);
+	List<Item> getItems(String itemIds);
 
-	public List<Item> browseForward();
+	List<Item> browseForward();
 
-	public List<Item> browseReverse();
+	List<Item> browseReverse();
 
-	public long getTotalItems();
+	long getTotalItems();
 
-	public String getCurrentMax();
+	String getCurrentMax();
 
-	public String getCurrentMin();
+	String getCurrentMin();
 
 	Item createItem(Item item);
 
