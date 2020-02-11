@@ -95,7 +95,7 @@ public class Order {
 		this.entryDate = Calendar.getInstance();
 		this.total = total;
 		this.discount = discount;
-		this.orderLines = new ArrayList<OrderLine>();
+		this.orderLines = new ArrayList<>();
 		this.orderLineCount = 0;
 		this.customer = customer;
 	}

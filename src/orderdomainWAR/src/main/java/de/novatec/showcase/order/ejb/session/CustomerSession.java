@@ -54,7 +54,7 @@ public class CustomerSession implements CustomerSessionLocal {
 	public List<CustomerInventory> getInventories(Integer customerId) throws CustomerNotFoundException {
 		Customer customer = this.getCustomer(customerId);
 		if (customer == null) {
-			return new ArrayList<CustomerInventory>();
+			return new ArrayList<>();
 		}
 		em.refresh(customer);
 		return customer.getCustomerInventories();

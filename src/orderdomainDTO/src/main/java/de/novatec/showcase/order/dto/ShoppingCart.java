@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ShoppingCart {
 
-	private Map<String, ShoppingCartItem> shoppingCartItems = new HashMap<String, ShoppingCartItem>();
+	private Map<String, ShoppingCartItem> shoppingCartItems = new HashMap<>();
 
 	private BigDecimal totalPrice = BigDecimal.ZERO;
 

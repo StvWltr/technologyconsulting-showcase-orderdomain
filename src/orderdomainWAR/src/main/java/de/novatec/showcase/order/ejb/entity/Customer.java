@@ -107,7 +107,7 @@ public class Customer {
 		this.since = since;
 		this.balance = balance;
 		this.ytdPayment = ytdPayment;
-		this.customerInventories = new ArrayList<CustomerInventory>();
+		this.customerInventories = new ArrayList<>();
 		this.address = address;
 	}
 

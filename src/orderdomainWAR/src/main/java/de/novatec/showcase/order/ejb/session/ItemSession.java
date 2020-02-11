@@ -31,7 +31,7 @@ public class ItemSession implements ItemSessionLocal {
 	private static final String PART_NAME_PREFIX = "PARTS";
 
 	private List<Item> getSublist() {
-		List<Item> items = new ArrayList<Item>();
+		List<Item> items = new ArrayList<>();
 		for (int i = 0; i < this.getBatchSize(); i++) {
 			Item item = em.find(Item.class, PART_NAME_PREFIX + (this.currentMin + i));
 			items.add(item);
@@ -62,7 +62,7 @@ public class ItemSession implements ItemSessionLocal {
 	}
 
 	private List<Long> idsAsLong(List<String> ids) {
-		List<Long> longIds = new ArrayList<Long>();
+		List<Long> longIds = new ArrayList<>();
 		for (String id : ids) {
 			longIds.add(Long.valueOf(id));
 		}
@@ -87,7 +87,7 @@ public class ItemSession implements ItemSessionLocal {
 		if (this.currentMin < 1) {
 			this.currentMin = this.currentMin + this.batchSize;
 			this.currentMax = this.currentMax + this.batchSize;
-			return new ArrayList<Item>();
+			return new ArrayList<>();
 		}
 
 		return this.getSublist();
