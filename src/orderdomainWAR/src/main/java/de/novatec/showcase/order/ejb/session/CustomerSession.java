@@ -167,8 +167,7 @@ public class CustomerSession implements CustomerSessionLocal {
 	private BigDecimal getTotalPrice(OrderLine orderLine) {
 		Item item = orderLine.getItem();
 		BigDecimal priceInclDiscount = item.getPrice().subtract(item.getDiscount());
-		BigDecimal totalPrice = priceInclDiscount.multiply(new BigDecimal(orderLine.getQuantity()));
-		return totalPrice;
+		return priceInclDiscount.multiply(new BigDecimal(orderLine.getQuantity()));
 	}
 
 	/**

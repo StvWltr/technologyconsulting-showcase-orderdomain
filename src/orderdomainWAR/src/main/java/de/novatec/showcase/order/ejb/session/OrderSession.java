@@ -73,7 +73,7 @@ public class OrderSession implements OrderSessionLocal {
 		TypedQuery<Long> orderCount = em.createNamedQuery(Order.COUNT_BY_CUSTOMER, Long.class);
 		orderCount.setParameter("id", customerId);
 		List<Long> elementList = orderCount.getResultList();
-		return elementList != null ? elementList.get(0).longValue() : Long.valueOf(0).longValue();
+		return elementList != null ? elementList.get(0) : Long.valueOf(0);
 	}
 
 	@Override

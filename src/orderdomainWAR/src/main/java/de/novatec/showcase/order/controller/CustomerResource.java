@@ -37,7 +37,6 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tags;
 import de.novatec.showcase.order.GlobalConstants;
 import de.novatec.showcase.order.dto.Customer;
 import de.novatec.showcase.order.dto.CustomerInventory;
-import de.novatec.showcase.order.dto.Order;
 import de.novatec.showcase.order.ejb.session.CustomerSessionLocal;
 import de.novatec.showcase.order.ejb.session.exception.CustomerNotFoundException;
 import de.novatec.showcase.order.ejb.session.exception.ItemNotFoundException;
@@ -288,7 +287,7 @@ public class CustomerResource {
 		            example = "1",
 		            schema = @Schema(type = SchemaType.INTEGER)) 
 			@PathParam("quantity") int quantity) {
-		boolean sold = false;
+		boolean sold;
 		try {
 			sold = bean.sellInventory(customerId, itemId, quantity);
 		} catch (ItemNotFoundException | CustomerNotFoundException e) {

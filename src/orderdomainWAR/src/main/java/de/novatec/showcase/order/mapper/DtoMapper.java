@@ -12,11 +12,10 @@ import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 
 abstract public class DtoMapper {
-	private static MapperFactory mapperFactory;
 	private static MapperFacade mapper;
 
 	static {
-		mapperFactory = new DefaultMapperFactory.Builder().build();
+		MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
 		mapperFactory.classMap(CustomerInventory.class, de.novatec.showcase.order.ejb.entity.CustomerInventory.class).byDefault().register();
 		mapperFactory.classMap(Customer.class, de.novatec.showcase.order.ejb.entity.Customer.class).byDefault().register();
 		mapperFactory.classMap(OrderLine.class, de.novatec.showcase.order.ejb.entity.OrderLine.class).byDefault().register();

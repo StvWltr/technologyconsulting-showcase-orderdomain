@@ -114,7 +114,7 @@ public class CustomerResourceIT extends ResourceITBase {
 		assertEquals("CustomerInventory should have a quantity of 2", Integer.valueOf(3), Integer.valueOf(customerInventory.getQuantity()));
 
 		// call sell inventories
-		Integer quantity = Integer.valueOf("1");
+		int quantity = Integer.parseInt("1");
 		target = client.target(CUSTOMER_URL)
 				.path("sell_inventory/" + customer.getId().toString() + "/" + testItem.getId() + "/" + quantity);
 		response = asTestUser(target.request()).put(Entity.json(customer));
@@ -133,7 +133,7 @@ public class CustomerResourceIT extends ResourceITBase {
 
 	@Test
 	public void testCheckCreditOfCustomerWithCosts() {
-		BigDecimal costs = new BigDecimal(10.0);
+		BigDecimal costs = new BigDecimal("10.0");
 		WebTarget target = client.target(CUSTOMER_URL)
 				.path("check_credit/" + testCustomer.getId().toString() + "/" + costs);
 		Response response = asTestUser(target.request()).get();

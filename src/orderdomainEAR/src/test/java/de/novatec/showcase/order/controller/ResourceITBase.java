@@ -85,7 +85,7 @@ abstract public class ResourceITBase {
 	public void before()
 	{
 		WorkOrder workOrder = new WorkOrder(1,1,1,10,constantDate(), "4");
-		workOrder.setId(Integer.valueOf(1));
+		workOrder.setId(1);
 		workOrder.setStartDate(constantDate());
 		
 		try {
@@ -159,14 +159,14 @@ abstract public class ResourceITBase {
 
 	protected static Item createItem() {
 		WebTarget target = client.target(ITEM_URL);
-		Item item = new Item("name", "description", new BigDecimal(100.0), new BigDecimal(0.0), 1);
+		Item item = new Item("name", "description", new BigDecimal("100.0"), new BigDecimal("0.0"), 1);
 		
 		Builder builder = asAdmin(target.request(MediaType.APPLICATION_JSON));
 		Response response = builder.accept(MediaType.APPLICATION_JSON_TYPE).post(Entity.json(item));
 		assertResponse201(ITEM_URL, response);
 
 		target = client.target(ITEM_URL)
-				.path(response.readEntity(Item.class).getId().toString());
+				.path(response.readEntity(Item.class).getId());
 		response = asAdmin(target.request()).get();
 		assertResponse200(ITEM_URL, response);
 
@@ -178,8 +178,8 @@ abstract public class ResourceITBase {
 
 	protected static Customer createCustomer() {
 		WebTarget target = client.target(CUSTOMER_URL);
-		Customer customer = new Customer("firstname", "lastname", "contact", "GC", new BigDecimal(10000.0),
-				constantDate(), new BigDecimal(10000.0), new BigDecimal(10.0), 
+		Customer customer = new Customer("firstname", "lastname", "contact", "GC", new BigDecimal("10000.0"),
+				constantDate(), new BigDecimal("10000.0"), new BigDecimal("10.0"),
 				new Address("street1", "street2", "city", "DE", "country", "zip", "phone"));
 		Builder builder = asAdmin(target.request(MediaType.APPLICATION_JSON));
 		Response response = builder.accept(MediaType.APPLICATION_JSON_TYPE).post(Entity.json(customer));

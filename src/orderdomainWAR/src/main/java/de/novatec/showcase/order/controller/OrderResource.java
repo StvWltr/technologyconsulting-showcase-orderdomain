@@ -83,7 +83,7 @@ public class OrderResource {
             example = "1",
             schema = @Schema(type = SchemaType.INTEGER)) 
 			@PathParam("id") Integer orderId) {
-		if (orderId.intValue() <= 0) {
+		if (orderId <= 0) {
 			return Response.status(Response.Status.BAD_REQUEST).entity("Id cannot be less than 1!").type(MediaType.TEXT_PLAIN_TYPE).build();
 		}
 		de.novatec.showcase.order.ejb.entity.Order order;
@@ -215,7 +215,7 @@ public class OrderResource {
 			@PathParam("customerId") Integer customerId, 
 		@Valid ItemQuantityPairs itemQuantityPairs,
 			@Context UriInfo uriInfo) {
-		if (customerId.intValue() <= 0) {
+		if (customerId <= 0) {
 			return Response.status(Response.Status.BAD_REQUEST).entity("Customer id cannot be less than 1!").type(MediaType.TEXT_PLAIN_TYPE).build();
 		}
 		ShoppingCart shoppingCart = new ShoppingCart();
@@ -225,19 +225,13 @@ public class OrderResource {
 		de.novatec.showcase.order.ejb.entity.Order order;
 		try {
 			order = bean.newOrder(customerId, shoppingCart);
-		} catch (CustomerNotFoundException e) {
-			return Response.status(Response.Status.NOT_FOUND)
-					.entity(e.getMessage()).type(MediaType.TEXT_PLAIN_TYPE).build();
-		} catch (ItemNotFoundException e) {
+		} catch (CustomerNotFoundException | ItemNotFoundException e) {
 			return Response.status(Response.Status.NOT_FOUND)
 					.entity(e.getMessage()).type(MediaType.TEXT_PLAIN_TYPE).build();
 		} catch (InsufficientCreditException e) {
 			return Response.status(Response.Status.PRECONDITION_FAILED)
 					.entity("The customer with id '" + customerId + "' has insufficient credit!").type(MediaType.TEXT_PLAIN_TYPE).build();
-		} catch (PriceException e) {
-			return Response.status(Response.Status.PRECONDITION_FAILED)
-					.entity(e.getMessage()).type(MediaType.TEXT_PLAIN_TYPE).build();
-		} catch (SpecificationException e) {
+		} catch (PriceException | SpecificationException e) {
 			return Response.status(Response.Status.PRECONDITION_FAILED)
 					.entity(e.getMessage()).type(MediaType.TEXT_PLAIN_TYPE).build();
 		} catch (RestcallException e) {
@@ -276,7 +270,7 @@ public class OrderResource {
 		            example = "1",
 		            schema = @Schema(type = SchemaType.INTEGER)) 
 			@PathParam("id") Integer orderId) {
-		if (orderId.intValue() <= 0) {
+		if (orderId <= 0) {
 			return Response.status(Response.Status.BAD_REQUEST).entity("Order id cannot be less than 1!").type(MediaType.TEXT_PLAIN_TYPE).build();
 		}
 		try {

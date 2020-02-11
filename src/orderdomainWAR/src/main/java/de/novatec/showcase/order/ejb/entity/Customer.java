@@ -179,12 +179,9 @@ public class Customer {
 		this.balance = this.balance.add(money);
 	}
 
-	public boolean reduceBalance(BigDecimal costs) {
+	public void reduceBalance(BigDecimal costs) {
 		if (this.hasSufficientCredit(costs)) {
 			this.balance.subtract(costs);
-			return true;
-		} else {
-			return false;
 		}
 	}
 
@@ -221,7 +218,7 @@ public class Customer {
 	}
 
 	public boolean hasSufficientCredit(BigDecimal cost) {
-		return this.creditLimit.add(this.balance).compareTo(cost) == 1;
+		return this.creditLimit.add(this.balance).compareTo(cost) > 0;
 	}
 
 	@Override
