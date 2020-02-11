@@ -24,7 +24,7 @@ public class CustomerInventory {
 	@Id
 	@Column(name = "CI_ID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.TABLE, generator = "INV_ID_GEN")
-	@TableGenerator(name = "INV_ID_GEN", table = "U_SEQUENCES", pkColumnName = "S_ID", valueColumnName = "S_NEXTNUM", pkColumnValue = "INV_SEQ", allocationSize = 50)
+	@TableGenerator(name = "INV_ID_GEN", table = "U_SEQUENCES", pkColumnName = "S_ID", valueColumnName = "S_NEXTNUM", pkColumnValue = "INV_SEQ")
 	private Integer id;
 
 	@Id
