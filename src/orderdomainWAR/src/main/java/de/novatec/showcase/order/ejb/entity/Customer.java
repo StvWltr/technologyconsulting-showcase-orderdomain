@@ -245,7 +245,7 @@ public class Customer {
 				&& Objects.equals(customerInventories, other.customerInventories)
 				&& Objects.equals(firstName, other.firstName) && Objects.equals(id, other.id)
 				&& Objects.equals(lastName, other.lastName) && Objects.equals(since, other.since)
-				&& version == other.version && Objects.equals(ytdPayment, other.ytdPayment);
+				&& Objects.equals(version, other.version) && Objects.equals(ytdPayment, other.ytdPayment);
 	}
 
 	@Override

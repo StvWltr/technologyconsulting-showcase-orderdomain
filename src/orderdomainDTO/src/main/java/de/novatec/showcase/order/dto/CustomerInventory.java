@@ -124,7 +124,7 @@ public class CustomerInventory{
 		return Objects.equals(customerId, other.customerId) && Objects.equals(customer, other.customer)
 				&& Objects.equals(id, other.id) && quantity == other.quantity
 				&& Objects.equals(totalCost, other.totalCost) && Objects.equals(vehicle, other.vehicle)
-				&& version == other.version;
+				&& Objects.equals(version, other.version);
 	}
 
 	@Override

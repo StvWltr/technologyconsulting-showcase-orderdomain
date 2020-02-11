@@ -116,7 +116,7 @@ public class Item {
 		Item other = (Item) obj;
 		return category == other.category && Objects.equals(desc, other.desc)
 				&& Objects.equals(discount, other.discount) && Objects.equals(id, other.id)
-				&& Objects.equals(name, other.name) && Objects.equals(price, other.price) && version == other.version;
+				&& Objects.equals(name, other.name) && Objects.equals(price, other.price) && Objects.equals(version, other.version);
 	}
 
 	@Override

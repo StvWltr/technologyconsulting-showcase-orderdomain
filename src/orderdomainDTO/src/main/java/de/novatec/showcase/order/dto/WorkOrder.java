@@ -147,10 +147,10 @@ public class WorkOrder {
 		}
 		WorkOrder other = (WorkOrder) obj;
 		return Objects.equals(assemblyId, other.assemblyId) && completedQuantity == other.completedQuantity
-				&& Objects.equals(dueDate, other.dueDate) && id == other.id && location == other.location
+				&& Objects.equals(dueDate, other.dueDate) && Objects.equals(id, other.id) && location == other.location
 				&& orderLineId == other.orderLineId && originalQuantity == other.originalQuantity
 				&& salesId == other.salesId && Objects.equals(startDate, other.startDate) && status == other.status
-				&& version == other.version;
+				&& Objects.equals(version, other.version);
 	}
 
 	@Override

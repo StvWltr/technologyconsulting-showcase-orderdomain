@@ -158,6 +158,6 @@ public class Order {
 				&& Objects.equals(entryDate, other.entryDate) && Objects.equals(id, other.id)
 				&& Objects.equals(orderLines, other.orderLines)
 				&& Objects.equals(shipDate, other.shipDate) && status == other.status
-				&& Objects.equals(total, other.total) && version == other.version;
+				&& Objects.equals(total, other.total) && Objects.equals(version, other.version);
 	}
 }

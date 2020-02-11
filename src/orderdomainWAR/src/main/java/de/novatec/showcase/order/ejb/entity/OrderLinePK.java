@@ -47,7 +47,7 @@ public class OrderLinePK {
 			return false;
 		}
 		OrderLinePK other = (OrderLinePK) obj;
-		return id == other.id && Objects.equals(orderId, other.orderId);
+		return Objects.equals(id, other.id) && Objects.equals(orderId, other.orderId);
 	}
 
 	@Override
